@@ -1,0 +1,254 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="../dist/GraphicsControl.js"></script>
+</head>
+
+<body>
+<div class="container">
+<div class="content" style="width:100%;">
+
+  <h1>GraphicsControl.js</h1>
+  <h3>Character Example</h3>
+<p>Html5 canvas character animation, rigging example.</p>
+
+<canvas id="CharacterExample" width="700" height="400" style="border:1px solid #d3d3d3; margin-left:130px; float:left;"></canvas>
+
+<script>
+  var g = new GraphicsControl ("CharacterExample");
+
+  function drawCircle(px,py,size,color){
+    var p1 = g.AddControlPoint(px,py);
+    p1.visible = false;
+    p1.control = false;
+    g.BeginFill(color);
+    g.AddArc(p1,size,0,1);
+    g.EndFill();
+    return p1;
+  }
+  function drawCapsule(p1x,p1y,p2x,p2y,size,color){
+    g.context.strokeStyle = "rgb(150,150,150)";
+    g.BeginFill("rgba(255,255,255,0.5)");
+    var ph1 = g.AddControlPoint(p1x,p1y);
+    var ph2 = g.AddControlPoint(p2x,p2y);
+    g.EndFill();
+    ph1.scale = 10;ph2.scale = 10;
+    ph1.visible = false; ph2.visible = false;
+    ph1.control = false; ph2.control = false;
+    g.context.fillStyle = color;
+    g.context.strokeStyle = color;
+    g.BeginFill();
+    g.AddArc(ph1,size,0,1);
+    g.context.lineWidth = size * 2;
+    g.AddLine(ph1,ph2);
+    g.context.lineWidth = 1;
+    g.AddArc(ph2,size,0,1);
+    g.EndFill();
+    return [ph1,ph2];
+  }
+  function drawFlex(b1x,b1y,b2x,b2y,b3x,b3y,b4x,b4y, t1x,t1y,t2x,t2y,color){
+    var b1 = g.AddControlPoint(b1x,b1y);
+    var b2 = g.AddControlPoint(b2x,b2y);
+    var b3 = g.AddControlPoint(b3x,b3y);
+    var b4 = g.AddControlPoint(b4x,b4y);
+    var t1 = g.AddControlPoint(t1x,t1y);
+    var t2 = g.AddControlPoint(t2x,t2y);
+    b1.visible = false;b2.visible = false;b3.visible = false;b4.visible = false;t1.visible = false;t2.visible = false;
+    b1.control = false;b2.control = false;b3.control = false;b4.control = false;t1.control = false;t2.control = false;
+    g.BeginPath(color);
+    g.BeginFill(color);
+    g.AddLine(t1,t2);
+    g.AddBezier(b1,b2,b3,b4);
+    g.EndPath();
+    g.EndFill();
+    return [b1,b2,b3,b4,t1,t2];
+  }
+  function drawBezier(b1x,b1y,b2x,b2y,b3x,b3y,b4x,b4y,size,color){
+    g.context.strokeStyle = "rgb(150,150,150)";
+    g.BeginFill("rgba(255,255,255,0.5)");
+    var b1 = g.AddControlPoint(b1x,b1y);
+    var b2 = g.AddControlPoint(b2x,b2y);
+    var b3 = g.AddControlPoint(b3x,b3y);
+    var b4 = g.AddControlPoint(b4x,b4y);
+    g.EndFill();
+    b1.scale = 10;b2.scale = 10;b3.scale = 10;b4.scale = 10;
+    b1.visible = false;b2.visible = false;b3.visible = false;b4.visible = false;
+    b1.control = false;b2.control = false;b3.control = false;b4.control = false;
+    g.context.strokeStyle = color;
+    g.context.lineWidth = size * 2;
+    g.AddBezier(b1,b2,b3,b4);
+    g.context.lineWidth = 1;
+    g.BeginFill(color);
+    g.AddArc(b1,size,0,1);
+    g.AddArc(b4,size,0,1);
+    g.EndFill();
+    return [b1,b2,b3,b4];
+  }
+
+  g.context.strokeStyle = "rgb(150,150,150)";
+  g.BeginFill("rgba(255,255,255,0.5)");
+  var headCon = g.AddControlPoint(200,20);
+  headCon.scale = 10;
+  g.EndFill();
+
+  headCon.PositionLimit(190,15,210,35);
+
+  var hip = drawCapsule(200,190,200,200,50,"#000");
+  hip[1].AddParent(hip[0]);
+  var leftLeg = drawBezier(180,230,180,250,180,270,180,320,15,"#000");
+  var rightLeg = drawBezier(220,230,220,250,220,270,220,320,15,"#000");
+  leftLeg[0].AddParent(hip[0]);leftLeg[1].AddParent(hip[0]);leftLeg[2].AddParent(hip[0]);
+  rightLeg[0].AddParent(hip[0]);rightLeg[1].AddParent(hip[0]);rightLeg[2].AddParent(hip[0]);
+
+  var chest = drawCapsule(200,150,200,180,50,"#009fb0");
+  chest[0].AddParent(hip[0]);
+  chest[1].AddParent(hip[0]);
+  headCon.AddParent(chest[0]);
+
+  var earLC = drawCapsule(155,80,160,80,10,"#f3c09a");
+  var earRC = drawCapsule(245,80,240,80,10,"#f3c09a");
+  var earRCc = drawCapsule(155,80,160,80,5,"#cf7c68");
+  var earLCc = drawCapsule(245,80,240,80,5,"#cf7c68");
+  earLC[1].AddParent(earLC[0]);
+  earRC[1].AddParent(earRC[0]);
+  earLCc[0].AddParent(earLC[0]);earLCc[1].AddParent(earLC[0]);
+  earRCc[0].AddParent(earRC[0]);earRCc[1].AddParent(earRC[0]);
+  var head = drawCapsule(200,70,200,100,40,"#f3c09a");
+  earLC[0].AddParent(head[0]);
+  earRC[0].AddParent(head[0]);
+  head[0].AddParent(chest[0]);
+  head[1].AddParent(chest[0]);
+
+  function drawEye(x,y){
+    var w = drawCircle(x+20,y+15,13,"#fff");
+    var e = drawCircle(x+20,y+15,5,"#000");
+    var f = drawFlex(x+5,y+10,x+10,y+5,x+30,y+5,x+35,y+10,x+30,y,x+10,y,"#f3c09a");
+    w.AddParent(headCon);
+    f[0].AddParent(headCon);f[3].AddParent(headCon);f[4].AddParent(headCon);f[5].AddParent(headCon);
+    return [e, f[1],f[2]];
+  }
+  var leftEye = drawEye(195,55);
+  var rightEye = drawEye(165,55);
+  var nose = drawCapsule(200,85,200,90,10,"#e9927d");
+  nose[0].AddParent(headCon);nose[1].AddParent(headCon);
+  var mouth = drawBezier(180,110,190,120,210,120,220,110,2,"#e9927d");
+
+  var leftArm = drawBezier(240,135,265,150,280,200,263,240,10,"#009fb0");
+  var rightArm = drawBezier(160,135,135,150,120,200,137,240,10,"#009fb0");
+  leftArm[0].AddParent(chest[0]);leftArm[1].AddParent(chest[0]);leftArm[2].AddParent(chest[0]);
+  rightArm[0].AddParent(chest[0]);rightArm[1].AddParent(chest[0]);rightArm[2].AddParent(chest[0]);
+
+  leftArm[1].control = true;leftArm[2].control = true;leftArm[3].control = true;
+  leftArm[1].visible = true;leftArm[2].visible = true;leftArm[3].visible = true;
+  rightArm[1].control = true;rightArm[2].control = true;rightArm[3].control = true;
+  rightArm[1].visible = true;rightArm[2].visible = true;rightArm[3].visible = true;
+  leftLeg[2].control = true;leftLeg[3].control = true;
+  leftLeg[2].visible = true;leftLeg[3].visible = true;
+  rightLeg[2].control = true;rightLeg[3].control = true;
+  rightLeg[2].visible = true;rightLeg[3].visible = true;
+  g.LayerRefresh(leftArm);
+  g.LayerRefresh(rightArm);
+  g.LayerRefresh(leftLeg);
+  g.LayerRefresh(rightLeg);
+
+  chest[0].control = true;
+  chest[0].visible = true;
+  g.LayerRefresh(chest);
+
+  hip[0].control = true;
+  hip[0].visible = true;
+  g.LayerRefresh(hip);
+
+  g.LayerRefresh(headCon);
+
+  g.context.lineWidth = 5;
+  g.context.strokeStyle = "#75acc6";
+  var eyepan = g.AddRect(400,140,430,170);
+  var eyelid1 = g.AddLine(360,70,360,120);
+  var eyelid2 = g.AddLine(390,70,390,120);
+  var eyelid3 = g.AddLine(440,70,440,120);
+  var eyelid4 = g.AddLine(470,70,470,120);
+  var mouthpan1 = g.AddLine(385,200,385,235);
+  var mouthpan2 = g.AddLine(445,200,445,235);
+  g.AddLine(mouthpan1.points[0],mouthpan2.points[0]);
+  var mouthpan3 = g.AddArc(415,235,30,0,0.5);
+
+  g.context.strokeStyle = "#ffc700";
+  g.BeginFill("#f47d00");
+  var eyec = g.AddControlPoint(415,155);
+  var eyelibc1 = g.AddControlPoint(360,80);
+  var eyelibc2 = g.AddControlPoint(390,80);
+  var eyelibc3 = g.AddControlPoint(440,80);
+  var eyelibc4 = g.AddControlPoint(470,80);
+  var mouthc1 = g.AddControlPoint(395,220);
+  var mouthc2 = g.AddControlPoint(405,230);
+  var mouthc3 = g.AddControlPoint(425,230);
+  var mouthc4 = g.AddControlPoint(435,220);
+
+  eyec.PositionLimit(406,150,424,165);
+  eyelibc1.DirectionLimit(0,1);
+  eyelibc2.DirectionLimit(0,1);
+  eyelibc3.DirectionLimit(0,1);
+  eyelibc4.DirectionLimit(0,1);
+  eyelibc1.DirectPositionLimit(-7,35);
+  eyelibc2.DirectPositionLimit(-7,35);
+  eyelibc3.DirectPositionLimit(-7,35);
+  eyelibc4.DirectPositionLimit(-7,35);
+  mouthc1.PositionLimit(385,200,445,235);
+  mouthc2.PositionLimit(395,200,435,255);
+  mouthc3.PositionLimit(395,200,435,255);
+  mouthc4.PositionLimit(385,200,445,235);
+
+  eyepan.points[0].AddParent(headCon);
+  eyepan.points[1].AddParent(headCon);
+  eyelid1.points[0].AddParent(headCon);eyelid1.points[1].AddParent(headCon);
+  eyelid2.points[0].AddParent(headCon);eyelid2.points[1].AddParent(headCon);
+  eyelid3.points[0].AddParent(headCon);eyelid3.points[1].AddParent(headCon);
+  eyelid4.points[0].AddParent(headCon);eyelid4.points[1].AddParent(headCon);
+  mouthpan1.points[0].AddParent(headCon);mouthpan1.points[1].AddParent(headCon);
+  mouthpan2.points[0].AddParent(headCon);mouthpan2.points[1].AddParent(headCon);
+  mouthpan3.points[0].AddParent(headCon);
+
+  eyec.AddParent(headCon);
+  eyelibc1.AddParent(headCon);
+  eyelibc2.AddParent(headCon);
+  eyelibc3.AddParent(headCon);
+  eyelibc4.AddParent(headCon);
+  mouthc1.AddParent(headCon);
+  mouthc2.AddParent(headCon);
+  mouthc3.AddParent(headCon);
+  mouthc4.AddParent(headCon);
+
+  leftEye[0].AddParent(eyec);
+  leftEye[1].AddParent(eyelibc3);
+  leftEye[2].AddParent(eyelibc4);
+  rightEye[0].AddParent(eyec);
+  rightEye[1].AddParent(eyelibc1);
+  rightEye[2].AddParent(eyelibc2);
+  mouth[0].AddParent(mouthc1);mouth[1].AddParent(mouthc2);mouth[2].AddParent(mouthc3);mouth[3].AddParent(mouthc4);
+  g.EndFill();
+  g.context.strokeStyle = "#000";
+  g.context.lineWidth = 1;
+
+  g.BeginFill("#777");
+  g.context.font = "Bold 13px Arial";
+  var eyetext = g.AddText(380,135,"Eye Control");
+  var eyelidtext = g.AddText(370,65,"Eyelid Control");
+  var mouthtext = g.AddText(370,195,"Mouth Control");
+  g.EndFill();
+
+  eyetext.points[0].AddParent(headCon);
+  eyelidtext.points[0].AddParent(headCon);
+  mouthtext.points[0].AddParent(headCon);
+
+  g.context.lineWidth = 5;
+  g.context.strokeStyle = "#75acc6";
+  g.AddBezier(mouthc1,mouthc2,mouthc3,mouthc4);
+
+  g.LayerRefresh([mouthc1,mouthc2,mouthc3,mouthc4]);
+  g.Draw();
+
+
+</script>
+
+<div id="tyaz"></div>

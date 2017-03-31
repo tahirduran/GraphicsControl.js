@@ -1,0 +1,166 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="../dist/GraphicsControl.js"></script>
+</head>
+
+<body>
+<div class="container">
+<div class="content" style="width:100%;">
+
+  <h1>GraphicsControl.js</h1>
+  <h3>Chart Example</h3>
+
+<canvas id="ChartExample" width="725" height="400" style="border:1px solid #d3d3d3; margin-left:120px; float:left;"></canvas>
+<script>
+  var g = new GraphicsControl ("ChartExample");
+
+  //Arc
+
+  var p0 = g.AddControlPoint(200,200);
+  p0.control = false;
+  p0.visible = false;
+  g.context.strokeStyle = "rgb(150,150,150)"
+  g.BeginFill("rgba(255,255,255,0.5)");
+  var p1 = g.AddControlPoint(350,200);
+  var p2 = g.AddControlPoint(200,50);
+  var p3 = g.AddControlPoint(50,200);
+  var p4 = g.AddControlPoint(200,350);
+  p1.scale = 10, p2.scale = 10, p3.scale = 10, p4.scale = 10;
+  p1.DirectionLimit(-1,0);
+  p2.DirectionLimit(0,1);
+  p3.DirectionLimit(1,0);
+  p4.DirectionLimit(0,-1);
+  p1.DirectPositionLimit(-10,100);
+  p2.DirectPositionLimit(-10,100);
+  p3.DirectPositionLimit(-10,100);
+  p4.DirectPositionLimit(-10,100);
+
+  g.EndStroke();
+
+  function myArc(color, cPoint){
+    g.BeginPath();
+    g.BeginFill(color);
+    g.AddLine(p0,p0);
+    g.AddArc(p0,cPoint,-0.125,0.125);
+    g.EndFill();
+    g.EndPath();
+  }
+  myArc("#1daadf",p1);
+  myArc("#98d21c",p2);
+  myArc("#ff8b02",p3);
+  myArc("#dc0000",p4);
+
+  var pg1 = g.AddControlPoint(300,200);
+  var pg2 = g.AddControlPoint(200,100);
+  var pg3 = g.AddControlPoint(100,200);
+  var pg4 = g.AddControlPoint(200,300);
+  pg1.control = false;pg2.control = false;pg3.control = false;pg4.control = false;
+
+  pg1.AddParent(p1);
+  pg2.AddParent(p2);
+  pg3.AddParent(p3);
+  pg4.AddParent(p4);
+  myArc("#5ccbff",pg1);
+  myArc("#bae069",pg2);
+  myArc("#ffb865",pg3);
+  myArc("#ea5f5f",pg4);
+
+  var pf = g.AddControlPoint(250,200);
+  pf.control = false;
+  pf.visible = false;
+  g.BeginFill("#fff");
+  g.AddArc(p0,pf,0,1);
+  g.EndFill();
+
+  //Rectangle
+  g.BeginStroke();
+  g.context.strokeStyle = "rgb(150,150,150)"
+  g.BeginFill("rgba(255,255,255,0.5)");
+  var prc1 = g.AddControlPoint(425,50);
+  var prc2 = g.AddControlPoint(500,50);
+  var prc3 = g.AddControlPoint(575,50);
+  var prc4 = g.AddControlPoint(650,50);
+  g.EndStroke();
+  prc1.scale = 10, prc2.scale = 10, prc3.scale = 10, prc4.scale = 10;
+  prc1.DirectionLimit(0,1);
+  prc2.DirectionLimit(0,1);
+  prc3.DirectionLimit(0,1);
+  prc4.DirectionLimit(0,1);
+  prc1.DirectPositionLimit(-20,200);
+  prc2.DirectPositionLimit(-20,200);
+  prc3.DirectPositionLimit(-20,200);
+  prc4.DirectPositionLimit(-20,200);
+
+  function myRect(color1, color2, x, cPoint){
+    var pr1 = g.AddControlPoint(x + 0,50);
+    var pr2 = g.AddControlPoint(x + 50,350);
+    pr1.AddParent(cPoint);
+    g.BeginFill(color1);
+    g.AddRect(pr1,pr2);
+    g.EndFill();
+    var pr1 = g.AddControlPoint(x + 20,70);
+    var pr2 = g.AddControlPoint(x + 30,350);
+    pr1.AddParent(cPoint);
+    g.BeginFill(color2);
+    g.AddRect(pr1,pr2);
+    g.EndFill();
+  }
+  myRect("#1daadf", "#5ccbff", 400, prc1);
+  myRect("#98d21c", "#bae069", 475, prc2);
+  myRect("#ff8b02", "#ffb865", 550, prc3);
+  myRect("#dc0000", "#ea5f5f", 625, prc4);
+
+  g.LayerRefresh([p0,p1,p2,p3,p4, pg1,pg2,pg3,pg4, prc1,prc2,prc3,prc4]);
+
+  prc1.on("move",prc1move);
+  prc2.on("move",prc2move);
+  prc3.on("move",prc3move);
+  prc4.on("move",prc4move);
+  function prc1move(cp, delta){
+    p1.off("move",p1move);
+    p1.Move(250+ 110-((prc1.y-30)/2),p1.y);
+    p1.on("move",p1move);
+  }
+  function prc2move(cp, delta){
+    p2.off("move",p2move);
+    p2.Move(p2.x,40 + ((prc2.y-30)/2));
+    p2.on("move",p2move);
+  }
+  function prc3move(cp, delta){
+    p3.off("move",p3move);
+    p3.Move(40+ ((prc3.y-30)/2),p3.y);
+    p3.on("move",p3move);
+  }
+  function prc4move(cp, delta){
+    p4.off("move",p4move);
+    p4.Move(p4.y,250 + 110 - ((prc4.y-30)/2));
+    p4.on("move",p4move);
+  }
+  p1.on("move",p1move);
+  p2.on("move",p2move);
+  p3.on("move",p3move);
+  p4.on("move",p4move);
+  function p1move(cp, delta){
+    prc1.off("move",prc1move);
+    prc1.Move(prc1.x,30 + 220 -((p1.x-250)*2));
+    prc1.on("move",prc1move);
+  }
+  function p2move(cp, delta){
+    prc2.off("move",prc2move);
+    prc2.Move(prc2.x,30 + ((p2.y-40)*2));
+    prc2.on("move",prc2move);
+  }
+  function p3move(cp, delta){
+    prc3.off("move",prc3move);
+    prc3.Move(prc3.x,30 + ((p3.x-40)*2));
+    prc3.on("move",prc3move);
+  }
+  function p4move(cp, delta){
+    prc4.off("move",prc4move);
+    prc4.Move(prc4.x,30 + 220 -((p4.y-250)*2));
+    prc4.on("move",prc4move);
+  }
+</script>
+
+<div id="tyaz"></div>

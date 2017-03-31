@@ -1,0 +1,105 @@
+body {
+  background: #F4F4F4;
+  margin: 0;
+  color: #333;
+  font-family: "Open Sans",Arial,sans-serif;
+}
+canvas{
+  float: right;
+  background-color: white;
+  border:1px solid #d3d3d3;
+}
+h3{
+  font-weight: normal;
+}
+h4{
+  margin-bottom: 0;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color:inherit;
+}
+a:hover{
+
+}
+p{
+  float: left;
+  width: 100%;
+}
+input{
+  width: 50px;
+}
+tbody{
+  float: left;
+  border-spacing: 0px 0px;
+  font-size: 13px;
+}
+th{
+  padding: 10px 10px;
+  border: 1px solid #bbb;
+  background-color: #ededed;
+  color: #636363;
+}
+td{
+  padding: 10px 10px;
+  border: 1px solid #bbb;
+}
+
+.container {
+  float: none;
+  margin-top: 30px;
+  width: 970px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.content{
+  float: left;
+  background: #fff;
+  border: 1px solid #eee;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.baslik-alt{
+  float: left;
+  margin-top: 20px;
+  font-weight: bolder;
+  width: 100%;
+}
+.link{
+  color: #36A2EB;
+  text-decoration: none;
+  border-bottom: 1px solid #36A2EB;
+  background-color:
+}
+.link:hover{
+  color: #36A2EB;
+}
+pre {
+  float: left;
+  width: 500px;
+  max-width: 100%;
+  overflow-x: auto;
+  background-color: rgba(231, 233, 237, 0.4);
+  border: 1px dotted #CCC;
+  border-left: 5px solid #CCC;
+  padding: 12px 20px;
+  margin-bottom: 5px;
+  margin-right: 20px;
+}
+.input-title{
+  font-weight: bolder;
+  float:right;
+  text-align: right;
+  margin-right: 40px;
+  width: 300px;
+}
+#b{
+  color: #00709f;
+}
+#g{
+  color: Green;
+}
+#k{
+  font-weight: bold;;
+}

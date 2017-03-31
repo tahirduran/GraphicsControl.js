@@ -1,0 +1,518 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="../dist/GraphicsControl.js"></script>
+</head>
+
+<body>
+<div class="container">
+<div class="content">
+
+  <!-- <canvas id="CanvasArc" width="350" height="200"></canvas>
+  <script>
+    var g = new GraphicsControl ("CanvasArc");
+    var p1 = g.AddControlPoint(175,100);
+    var p2 = g.AddControlPoint(250,100);
+    g.AddArc(p1,p2,0.2,1.1);
+  </script> -->
+
+  <h1>GraphicsControl.js</h1>
+  <h3>API Documentation</h3>
+
+  <a class="baslik-alt" href="#download-GraphicsControl-js"><h4>Download GraphicsControl.js</h4></a>
+
+  <p>You can download the latest version of
+  <a class="link" href="https://github.com/tahirduran/GraphicsControl.js" target="_blank">GraphicsControl.js on GitHub</a>
+  on GitHub</p>
+
+  <a class="baslik-alt" href="#"><h4>Usage</h4></a>
+  <p>To import GraphicsControl.js using an script tag:</p>
+
+
+<pre><span style="color: #007700">&lt;script </span><span style="color: #0000CC">src=</span><span style="background-color: #fff0f0">&quot;GraphicsControl.js&quot;</span><span style="color: #007700">&gt;&lt;/script&gt;</span>
+<span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;myCanvas&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> myGraphic <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl(<span style="background-color: #fff0f0">&quot;myCanvas&quot;</span>)
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+<!--Line-->
+<a class="baslik-alt" href="#"><h4>Creating a Line</h4></a>
+<p>To create a Line, we need to add two ControlPoint. We use the created ControlPoints to add a Line. Here's an example.</p>
+
+<pre><span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;CanvasLine&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl (<span style="background-color: #fff0f0">&quot;CanvasLine&quot;</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">80</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">270</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  g.AddLine(p1,p2);
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+<canvas id="CanvasLine" width="350" height="200"></canvas>
+<script>
+  var g = new GraphicsControl ("CanvasLine");
+  var p1 = g.AddControlPoint(80,150);
+  var p2 = g.AddControlPoint(270,50);
+  g.AddLine(p1,p2);
+</script>
+
+<!--Bezier-->
+<a class="baslik-alt" href="#"><h4>Creating a Bezier</h4></a>
+<p>We need four ControlPoints to add Bezier.</p>
+
+<pre><span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;CanvasBezier&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl (<span style="background-color: #fff0f0">&quot;CanvasBezier&quot;</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">80</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">120</span>,<span style="color: #0000DD; font-weight: bold">40</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p3 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">230</span>,<span style="color: #0000DD; font-weight: bold">160</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p4 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">270</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  g.AddBezier(p1,p2,p3,p4);
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+<canvas id="CanvasBezier" width="350" height="200"></canvas>
+<script>
+  var g = new GraphicsControl ("CanvasBezier");
+  var p1 = g.AddControlPoint(80,150);
+  var p2 = g.AddControlPoint(120,40);
+  var p3 = g.AddControlPoint(230,160);
+  var p4 = g.AddControlPoint(270,50);
+  g.AddBezier(p1,p2,p3,p4);
+</script>
+
+<!--Rectangle-->
+<a class="baslik-alt" href="#"><h4>Fill Rectangle</h4></a>
+<p>The Points control the head and the end of the rectangle. We need to BeginFill to fill in drawing.</p>
+
+<pre><span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;CanvasRect&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl (<span style="background-color: #fff0f0">&quot;CanvasRect&quot;</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">80</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">270</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  g.BeginFill(<span style="background-color: #fff0f0">&quot;skyblue&quot;</span>);
+  g.AddRect(p1,p2);
+  g.EndFill();
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+<canvas id="CanvasRect" width="350" height="200"></canvas>
+<script>
+  var g = new GraphicsControl ("CanvasRect");
+  var p1 = g.AddControlPoint(80,50);
+  var p2 = g.AddControlPoint(270,150);
+  g.BeginFill("skyblue");
+  g.AddRect(p1,p2);
+  g.EndFill();
+</script>
+
+
+<!--Polygon-->
+<a class="baslik-alt" href="#"><h4>Polygon</h4></a>
+<p>We need to use a ControlPoints Array to add the Polygon.</p>
+
+<pre ><span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;CanvasPolygon&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl (<span style="background-color: #fff0f0">&quot;CanvasPolygon&quot;</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p <span style="color: #333333">=</span> [ g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">60</span>,<span style="color: #0000DD; font-weight: bold">150</span>),
+            g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">120</span>,<span style="color: #0000DD; font-weight: bold">40</span>),
+            g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">230</span>,<span style="color: #0000DD; font-weight: bold">40</span>),
+            g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">290</span>,<span style="color: #0000DD; font-weight: bold">150</span>) ];
+  g.BeginFill(<span style="background-color: #fff0f0">&quot;lightgreen&quot;</span>);
+  g.AddPolygon(p);
+  g.EndFill();
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+
+<canvas id="CanvasPolygon" width="350" height="200"></canvas>
+<script>
+  var g = new GraphicsControl ("CanvasPolygon");
+  var p = [g.AddControlPoint(60,150),
+  			g.AddControlPoint(120,40),
+  			g.AddControlPoint(230,40),
+  			g.AddControlPoint(290,150)];
+  g.BeginFill("lightgreen");
+  g.AddPolygon(p);
+  g.EndFill();
+</script>
+
+<!--Input Connect-->
+<a class="baslik-alt" href="#"><h4>Input Connect</h4></a>
+<p>We can connect ControlPoints to Inputs using ConnectInput.</p>
+
+<pre><span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;CanvasInput&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;p</span> <span style="color: #0000CC">class=</span><span style="background-color: #fff0f0">&quot;input-title&quot;</span><span style="color: #007700">&gt;</span>
+  x:<span style="color: #007700">&lt;input</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;Input1&quot;</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;0&quot;</span><span style="color: #007700">&gt;</span>
+  y:<span style="color: #007700">&lt;input</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;Input2&quot;</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;0&quot;</span><span style="color: #007700">&gt;</span>
+  x:<span style="color: #007700">&lt;input</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;Input3&quot;</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;0&quot;</span><span style="color: #007700">&gt;</span>
+  y:<span style="color: #007700">&lt;input</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;Input4&quot;</span> <span style="color: #0000CC">type=</span><span style="background-color: #fff0f0">&quot;number&quot;</span> <span style="color: #0000CC">value=</span><span style="background-color: #fff0f0">&quot;0&quot;</span><span style="color: #007700">&gt;</span>
+<span style="color: #007700">&lt;/p&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl (<span style="background-color: #fff0f0">&quot;CanvasInput&quot;</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">80</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">270</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  p1.ConnectInputX(<span style="background-color: #fff0f0">&quot;Input1&quot;</span>);
+  p1.ConnectInputY(<span style="background-color: #fff0f0">&quot;Input2&quot;</span>);
+  p2.ConnectInputX(<span style="background-color: #fff0f0">&quot;Input3&quot;</span>);
+  p2.ConnectInputY(<span style="background-color: #fff0f0">&quot;Input4&quot;</span>);
+  g.AddLine(p1,p2);
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+
+<canvas id="CanvasInput" width="350" height="200"></canvas>
+<p class="input-title">
+  x:<input id="Input1" type="number" value="0">
+  y:<input id="Input2" type="number" value="0">
+  x:<input id="Input3" type="number" value="0">
+  y:<input id="Input4" type="number" value="0">
+</p>
+<script>
+  var g = new GraphicsControl ("CanvasInput");
+  var p1 = g.AddControlPoint(80,150);
+  var p2 = g.AddControlPoint(270,50);
+  p1.ConnectInputX("Input1");
+  p1.ConnectInputY("Input2");
+  p2.ConnectInputX("Input3");
+  p2.ConnectInputY("Input4");
+  g.AddLine(p1,p2);
+</script>
+
+<!--Limit-->
+<a class="baslik-alt" href="#"><h4>Control Limit</h4></a>
+<p>We can limit the ControlPoints as in the following example.</p>
+
+<pre><span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;CanvasLineLimit&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl (<span style="background-color: #fff0f0">&quot;CanvasLineLimit&quot;</span>);
+  g.AddRect(<span style="color: #0000DD; font-weight: bold">125</span>,<span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">225</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">125</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">225</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  p1.PositionLimit(<span style="color: #0000DD; font-weight: bold">125</span>,<span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">225</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  p2.PositionLimit(<span style="color: #0000DD; font-weight: bold">125</span>,<span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">225</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  g.AddLine(p1,p2);
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+
+<canvas id="CanvasLineLimit" width="350" height="200"></canvas>
+<script>
+  var g = new GraphicsControl ("CanvasLineLimit");
+  g.AddRect(125,50,225,150);
+  var p1 = g.AddControlPoint(125,150);
+  var p2 = g.AddControlPoint(225,50);
+  p1.PositionLimit(125,50,225,150);
+  p2.PositionLimit(125,50,225,150);
+  g.AddLine(p1,p2);
+</script>
+
+<!--Direction Limit-->
+<a class="baslik-alt" href="#"><h4>Direction Limit</h4></a>
+<p>We can limit the ControlPoints in one direction. DirectPositionLimit is used for DirectionLimit.</p>
+
+<pre><span style="color: #007700">&lt;canvas</span> <span style="color: #0000CC">id=</span><span style="background-color: #fff0f0">&quot;CanvasDirectionLimit&quot;</span><span style="color: #007700">&gt;&lt;/canvas&gt;</span>
+<span style="color: #007700">&lt;script&gt;</span>
+  <span style="color: #008800; font-weight: bold">var</span> g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> GraphicsControl (<span style="background-color: #fff0f0">&quot;CanvasDirectionLimit&quot;</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p1 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">125</span>,<span style="color: #0000DD; font-weight: bold">150</span>);
+  <span style="color: #008800; font-weight: bold">var</span> p2 <span style="color: #333333">=</span> g.AddControlPoint(<span style="color: #0000DD; font-weight: bold">225</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  p1.DirectionLimit(<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>);
+  p2.DirectionLimit(<span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>);
+  p1.DirectPositionLimit(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  p2.DirectPositionLimit(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>,<span style="color: #0000DD; font-weight: bold">50</span>);
+  g.AddLine(p1,p2);
+<span style="color: #007700">&lt;/script&gt;</span>
+</pre>
+
+
+<canvas id="CanvasDirectionLimit" width="350" height="200"></canvas>
+<script>
+  var g = new GraphicsControl ("CanvasDirectionLimit");
+  var p1 = g.AddControlPoint(125,150);
+  var p2 = g.AddControlPoint(225,50);
+  p1.DirectionLimit(1,-1);
+  p2.DirectionLimit(1,-1);
+  p1.DirectPositionLimit(-50,50);
+  p2.DirectPositionLimit(-50,50);
+  g.AddLine(p1,p2);
+</script>
+
+
+
+<!-- GraphicsControl Class-->
+<div class="baslik-alt">
+  <h2 style="margin-bottom:0;">GraphicsControl Class</h2>
+</div>
+<p><span id="g">new</span> GraphicsControl(<span id="g">String</span> CanvasID)</p>
+<div class="baslik-alt" style="margin-top: 0;">
+
+<h3 style="margin-top:0; font-weight: bold;">Methods</h3>
+</div>
+<table style="width:100%">
+  <tr>
+    <th style="width:550px;">Name</th>
+    <th style="width:300px;">Description</th>
+  </tr>
+  <tr>
+    <td><span id="k">AddControlPoint</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y )</td>
+    <td>Add a ControlPoint defined by x,y coordinate.</td>
+  </tr>
+  <tr>
+    <td><span id="k">AddLine</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y ) </br>
+      <span id="k">AddLine</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2 )</td>
+    <td>Add a Line defined by x,y coordinate or ControlPoints.</td>
+  </tr>
+  <tr>
+    <td><span id="k">AddBezier</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2, <span id="g">Number</span> p3, <span id="g">Number</span> p4 ) </br>
+      <span id="k">AddBezier</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2, <span id="b">ControlPoint</span> p3, <span id="b">ControlPoint</span> p4 )</td>
+    <td>Add a Bezier spline defined by four coordinate or ControlPoints.</td>
+  </tr>
+  <tr>
+    <td><span id="k">AddRect</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2, <span id="g">Number</span> p3, <span id="g">Number</span> p4 ) </br>
+      <span id="k">AddRect</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2 )</td>
+    <td>Add a Rectangle defined by four coordinate or ControlPoints.</td>
+  </tr>
+  <tr>
+    <td><span id="k">AddPolygon</span> ( <span id="b">ControlPoint[]</span> ps )</td>
+    <td>Add a Polygon defined by an array of ControlPoint.</td>
+  </tr>
+  <tr>
+    <td>
+      <span id="k">AddArc</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y, <span id="g">Number</span> radius, <span id="g">Number</span> angleBegin, <span id="g">Number</span> angleEnd ) </br>
+      <span id="k">AddArc</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y, <span id="b">ControlPoint</span> radius, <span id="g">Number</span> angleBegin, <span id="g">Number</span> angleEnd ) </br>
+      <span id="k">AddArc</span> ( <span id="b">ControlPoint</span> p, <span id="b">ControlPoint</span> radius, <span id="g">Number</span> angleBegin, <span id="g">Number</span> angleEnd )
+    </td>
+    <td>Add a Arc defined by two coordinate or ControlPoints. </br> Angle is between -1 and 1.</td>
+  </tr>
+  <tr>
+    <td>
+      <span id="k">AddText</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2, <span id="g">String</span> text ) </br>
+      <span id="k">AddText</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2, <span id="g">String</span> text  )
+    </td>
+    <td>Add a Text defined by a coordinate or ControlPoints.</td>
+  </tr>
+  <tr>
+    <td><span id="k">Draw</span> ()</td>
+    <td>Drawing refresh.</td>
+  </tr>
+  <tr>
+    <td><span id="k">BeginStroke</span> ()</td>
+    <td>Begin for Stroke. (Default is the active.)</td>
+  </tr>
+  <tr>
+    <td><span id="k">EndStroke</span> ()</td>
+    <td>End for Stroke.</td>
+  </tr>
+  <tr>
+    <td><span id="k">BeginFill</span> () </br>
+      <span id="k">BeginFill</span> (<span id="g">String</span> fillColor) </td>
+    <td>Begin for Fill.</td>
+  </tr>
+  <tr>
+    <td><span id="k">EndFill</span> ()</td>
+    <td>End for Fill.</td>
+  </tr>
+  <tr>
+    <td><span id="k">BeginPath</span> ()</td>
+    <td>Begin for Path.</td>
+  </tr>
+  <tr>
+    <td><span id="k">EndPath</span> ()</td>
+    <td>End for Path.</td>
+  </tr>
+  <tr>
+    <td><span id="k">LayerRefresh</span> ( <span id="b">ControlPoint[]</span> ps )</td>
+    <td>Raises the layer of objects.</td>
+  </tr>
+</table>
+
+<div class="baslik-alt">
+  <h3 style="margin-top:0; font-weight: bold;">Parameters</h3>
+</div>
+<table style="width:100%">
+  <tr>
+    <th style="width:300px;">Name</th>
+    <th style="width:50px;">Type</th>
+    <th style="width:50px;">Default</th>
+    <th style="width:550px;">Description</th>
+  </tr>
+  <tr>
+    <td><span id="k">canvas</span></td>
+    <td><span id="g">Object</span></td>
+    <td></td>
+    <td>Get the canvas element.</td>
+  </tr>
+  <tr>
+    <td><span id="k">context</span></td>
+    <td><span id="g">Object</span></td>
+    <td></td>
+    <td>Get the canvas context.</td>
+  </tr>
+  <tr>
+    <td><span id="k">allObjects</span></td>
+    <td><span id="g">Object[]</span></td>
+    <td></td>
+    <td>Get the all added objects.</td>
+  </tr>
+  <tr>
+    <td><span id="k">controlPoints</span></td>
+    <td><span id="g">Object[]</span></td>
+    <td></td>
+    <td>Get the all added ControlPoints.</td>
+  </tr>
+</table>
+
+
+<!-- ControlPoint Class-->
+<div class="baslik-alt">
+  <h2 style="margin-bottom:0;">ControlPoint Class</h2>
+</div>
+<p><span id="g">new</span> ControlPoint(<span id="g">Number</span> x, <span id="g">Number</span> y)</p>
+<div class="baslik-alt" style="margin-top: 0;">
+  <h3 style="margin-top:0; font-weight: bold;">Methods</h3>
+</div>
+<table style="width:100%">
+  <tr>
+    <th style="width:500px;">Name</th>
+    <th style="width:400px;">Description</th>
+  </tr>
+  <tr>
+    <td><span id="k">Move</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y )</td>
+    <td>Moves the ControlPoint on x, y coordinates.</td>
+  </tr>
+  <tr>
+    <td><span id="k">PositionLimit</span> ( <span id="g">Number</span> minX, <span id="g">Number</span> minY, <span id="g">Number</span> maxX, <span id="g">Number</span> maxY ) </br>
+      <span id="k">PositionLimit</span> ( <span id="b">null</span> )</td>
+    <td>It limits the position at Min x, Min y, Max x, Max y coordinates.</td>
+  </tr>
+  <tr>
+    <td><span id="k">DirectionLimit</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2)</br>
+      <span id="k">DirectionLimit</span> ( <span id="b">null</span> )</td>
+    <td>Limits the ControlPoint in one direction.</td>
+  </tr>
+  <tr>
+    <td><span id="k">DirectPositionLimit</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2)</br>
+      <span id="k">DirectPositionLimit</span> ( <span id="b">null</span> )</td>
+    <td>Limits the position when using the DirectionLimit.</td>
+  </tr>
+  <tr>
+    <td><span id="k">ConnectInputX</span> ( <span id="g">String</span> inputID)</br>
+      <span id="k">ConnectInputX</span> ( <span id="b">null</span> )</td>
+    <td>Connects the x coordinate to an Input object.</td>
+  </tr>
+  <tr>
+    <td><span id="k">ConnectInputY</span> ( <span id="g">String</span> inputID)</br>
+      <span id="k">ConnectInputY</span> ( <span id="b">null</span> )</td>
+    <td>Connects the y coordinate to an Input element.</td>
+  </tr>
+  <tr>
+    <td><span id="k">AddParent</span> ( <span id="b">ControlPoint</span> cp )</br>
+      <span id="k">AddParent</span> ( <span id="b">null</span> )</td>
+    <td>Adds the parent to the ControlPoint.</td>
+  </tr>
+  <tr>
+    <td><span id="k">on</span> ( <span id="g">"move"</span>, <span id="g">function</span> event )</td>
+    <td>Adds event listener.</td>
+  </tr>
+  <tr>
+    <td><span id="k">off</span> ( <span id="g">"move"</span>, <span id="g">function</span> event )</td>
+    <td>Remove event listener.</td>
+  </tr>
+</table>
+
+<div class="baslik-alt">
+  <h3 style="margin-top:0; font-weight: bold;">Parameters</h3>
+</div>
+<table style="width:100%">
+  <tr>
+    <th style="width:300px;">Name</th>
+    <th style="width:50px;">Type</th>
+    <th style="width:50px;">Default</th>
+    <th style="width:550px;">Description</th>
+  </tr>
+  <tr>
+    <td><span id="k">x</span></td>
+    <td><span id="g">Number</span></td>
+    <td></td>
+    <td>The x coordinate of the canvas.</td>
+  </tr>
+  <tr>
+    <td><span id="k">y</span></td>
+    <td><span id="g">Number</span></td>
+    <td></td>
+    <td>The y coordinate of the canvas.</td>
+  </tr>
+  <tr>
+    <td><span id="k">visible</span></td>
+    <td><span id="g">Boolean</span></td>
+    <td><span id="b">true</span></td>
+    <td>ControlPoint drawing visibility.</td>
+  </tr>
+  <tr>
+    <td><span id="k">control</span></td>
+    <td><span id="g">Boolean</span></td>
+    <td><span id="b">true</span></td>
+    <td>ControlPoint drawing visibility. Default is true for AddControlPoint()</td>
+  </tr>
+  <tr>
+    <td><span id="k">scale</span></td>
+    <td><span id="g">Number</span></td>
+    <td><span id="b">5</span></td>
+    <td>Sets the control area size.</td>
+  </tr>
+  <tr>
+    <td><span id="k">directionLimit</span></td>
+    <td><span id="b">Number[]</span></td>
+    <td><span id="b"></span></td>
+    <td>Get the direction limit normal. Default [0,0]</td>
+  </tr>
+  <tr>
+    <td><span id="k">positionLimit</span></td>
+    <td><span id="b">Number[]</span></td>
+    <td><span id="b"></span></td>
+    <td>Get the position limit coordinates. Default [null,null,null,null]</td>
+  </tr>
+  <tr>
+    <td><span id="k">connectedInputX</span></td>
+    <td><span id="g">Object</span></td>
+    <td><span id="b">null</span></td>
+    <td>Get x coordinates connected Input element.</td>
+  </tr>
+  <tr>
+    <td><span id="k">connectedInputY</span></td>
+    <td><span id="g">Object</span></td>
+    <td><span id="b">null</span></td>
+    <td>Get y coordinates connected Input element.</td>
+  </tr>
+  <tr>
+    <td><span id="k">parent</span></td>
+    <td><span id="b">ControlPoint</span></td>
+    <td><span id="b">null</span></td>
+    <td>Get the parent ControlPoint.</td>
+  </tr>
+  <tr>
+    <td><span id="k">children</span></td>
+    <td><span id="b">ControlPoint[]</span></td>
+    <td><span id="b"></span></td>
+    <td>Get the children ControlPoints.</td>
+  </tr>
+  <tr>
+    <td><span id="k">directionLimitParent</span></td>
+    <td><span id="g">Boolean</span></td>
+    <td><span id="b">true</span></td>
+    <td>Direction limit parent effect is active or passive.</td>
+  </tr>
+  <tr>
+    <td><span id="k">positionLimitParent</span></td>
+    <td><span id="g">Boolean</span></td>
+    <td><span id="b">true</span></td>
+    <td>Position limit parent effect is active or passive.</td>
+  </tr>
+</table>
+
+
+<div style="float:left; height:300px; width:100%;"></div>
+</div>
+</div>
+</body>
