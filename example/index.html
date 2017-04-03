@@ -19,7 +19,7 @@
   <h1>GraphicsControl.js</h1>
   <h3>API Documentation</h3>
 
-  <a class="baslik-alt" href="#download-GraphicsControl-js"><h4>Download GraphicsControl.js</h4></a>
+  <a class="baslik-alt" ><h4>Download GraphicsControl.js</h4></a>
 
   <p>You can download the latest version of
   <a class="link" href="https://github.com/tahirduran/GraphicsControl.js" target="_blank">GraphicsControl.js on GitHub</a>
@@ -164,10 +164,10 @@
 
 <canvas id="CanvasInput" width="350" height="200"></canvas>
 <p class="input-title">
-  x:<input id="Input1" type="number" value="0">
-  y:<input id="Input2" type="number" value="0">
-  x:<input id="Input3" type="number" value="0">
-  y:<input id="Input4" type="number" value="0">
+  <label for="Input1">x:</label><input id="Input1" type="number" value="0">
+  <label for="Input2">y:</label><input id="Input2" type="number" value="0">
+  <label for="Input3">x:</label><input id="Input3" type="number" value="0">
+  <label for="Input4">y:</label><input id="Input4" type="number" value="0">
 </p>
 <script>
   var g = new GraphicsControl ("CanvasInput");
@@ -244,7 +244,7 @@
 <div class="baslik-alt">
   <h2 style="margin-bottom:0;">GraphicsControl Class</h2>
 </div>
-<p><span id="g">new</span> GraphicsControl(<span id="g">String</span> CanvasID)</p>
+<p><span class="g">new</span> GraphicsControl(<span class="g">String</span> CanvasID)</p>
 <div class="baslik-alt" style="margin-top: 0;">
 
 <h3 style="margin-top:0; font-weight: bold;">Methods</h3>
@@ -255,74 +255,74 @@
     <th style="width:300px;">Description</th>
   </tr>
   <tr>
-    <td><span id="k">AddControlPoint</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y )</td>
+    <td><span class="k">AddControlPoint</span> ( <span class="g">Number</span> x, <span class="g">Number</span> y )</td>
     <td>Add a ControlPoint defined by x,y coordinate.</td>
   </tr>
   <tr>
-    <td><span id="k">AddLine</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y ) </br>
-      <span id="k">AddLine</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2 )</td>
+    <td><span class="k">AddLine</span> ( <span class="g">Number</span> x, <span class="g">Number</span> y ) <br>
+      <span class="k">AddLine</span> ( <span class="b">ControlPoint</span> p1, <span class="b">ControlPoint</span> p2 )</td>
     <td>Add a Line defined by x,y coordinate or ControlPoints.</td>
   </tr>
   <tr>
-    <td><span id="k">AddBezier</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2, <span id="g">Number</span> p3, <span id="g">Number</span> p4 ) </br>
-      <span id="k">AddBezier</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2, <span id="b">ControlPoint</span> p3, <span id="b">ControlPoint</span> p4 )</td>
+    <td><span class="k">AddBezier</span> ( <span class="g">Number</span> p1, <span class="g">Number</span> p2, <span class="g">Number</span> p3, <span class="g">Number</span> p4 ) <br>
+      <span class="k">AddBezier</span> ( <span class="b">ControlPoint</span> p1, <span class="b">ControlPoint</span> p2, <span class="b">ControlPoint</span> p3, <span class="b">ControlPoint</span> p4 )</td>
     <td>Add a Bezier spline defined by four coordinate or ControlPoints.</td>
   </tr>
   <tr>
-    <td><span id="k">AddRect</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2, <span id="g">Number</span> p3, <span id="g">Number</span> p4 ) </br>
-      <span id="k">AddRect</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2 )</td>
+    <td><span class="k">AddRect</span> ( <span class="g">Number</span> p1, <span class="g">Number</span> p2, <span class="g">Number</span> p3, <span class="g">Number</span> p4 ) <br>
+      <span class="k">AddRect</span> ( <span class="b">ControlPoint</span> p1, <span class="b">ControlPoint</span> p2 )</td>
     <td>Add a Rectangle defined by four coordinate or ControlPoints.</td>
   </tr>
   <tr>
-    <td><span id="k">AddPolygon</span> ( <span id="b">ControlPoint[]</span> ps )</td>
+    <td><span class="k">AddPolygon</span> ( <span class="b">ControlPoint[]</span> ps )</td>
     <td>Add a Polygon defined by an array of ControlPoint.</td>
   </tr>
   <tr>
     <td>
-      <span id="k">AddArc</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y, <span id="g">Number</span> radius, <span id="g">Number</span> angleBegin, <span id="g">Number</span> angleEnd ) </br>
-      <span id="k">AddArc</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y, <span id="b">ControlPoint</span> radius, <span id="g">Number</span> angleBegin, <span id="g">Number</span> angleEnd ) </br>
-      <span id="k">AddArc</span> ( <span id="b">ControlPoint</span> p, <span id="b">ControlPoint</span> radius, <span id="g">Number</span> angleBegin, <span id="g">Number</span> angleEnd )
+      <span class="k">AddArc</span> ( <span class="g">Number</span> x, <span class="g">Number</span> y, <span class="g">Number</span> radius, <span class="g">Number</span> angleBegin, <span class="g">Number</span> angleEnd ) <br>
+      <span class="k">AddArc</span> ( <span class="g">Number</span> x, <span class="g">Number</span> y, <span class="b">ControlPoint</span> radius, <span class="g">Number</span> angleBegin, <span class="g">Number</span> angleEnd ) <br>
+      <span class="k">AddArc</span> ( <span class="b">ControlPoint</span> p, <span class="b">ControlPoint</span> radius, <span class="g">Number</span> angleBegin, <span class="g">Number</span> angleEnd )
     </td>
-    <td>Add a Arc defined by two coordinate or ControlPoints. </br> Angle is between -1 and 1.</td>
+    <td>Add a Arc defined by two coordinate or ControlPoints. <br> Angle is between -1 and 1.</td>
   </tr>
   <tr>
     <td>
-      <span id="k">AddText</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2, <span id="g">String</span> text ) </br>
-      <span id="k">AddText</span> ( <span id="b">ControlPoint</span> p1, <span id="b">ControlPoint</span> p2, <span id="g">String</span> text  )
+      <span class="k">AddText</span> ( <span class="g">Number</span> p1, <span class="g">Number</span> p2, <span class="g">String</span> text ) <br>
+      <span class="k">AddText</span> ( <span class="b">ControlPoint</span> p1, <span class="b">ControlPoint</span> p2, <span class="g">String</span> text  )
     </td>
     <td>Add a Text defined by a coordinate or ControlPoints.</td>
   </tr>
   <tr>
-    <td><span id="k">Draw</span> ()</td>
+    <td><span class="k">Draw</span> ()</td>
     <td>Drawing refresh.</td>
   </tr>
   <tr>
-    <td><span id="k">BeginStroke</span> ()</td>
+    <td><span class="k">BeginStroke</span> ()</td>
     <td>Begin for Stroke. (Default is the active.)</td>
   </tr>
   <tr>
-    <td><span id="k">EndStroke</span> ()</td>
+    <td><span class="k">EndStroke</span> ()</td>
     <td>End for Stroke.</td>
   </tr>
   <tr>
-    <td><span id="k">BeginFill</span> () </br>
-      <span id="k">BeginFill</span> (<span id="g">String</span> fillColor) </td>
+    <td><span class="k">BeginFill</span> () <br>
+      <span class="k">BeginFill</span> (<span class="g">String</span> fillColor) </td>
     <td>Begin for Fill.</td>
   </tr>
   <tr>
-    <td><span id="k">EndFill</span> ()</td>
+    <td><span class="k">EndFill</span> ()</td>
     <td>End for Fill.</td>
   </tr>
   <tr>
-    <td><span id="k">BeginPath</span> ()</td>
+    <td><span class="k">BeginPath</span> ()</td>
     <td>Begin for Path.</td>
   </tr>
   <tr>
-    <td><span id="k">EndPath</span> ()</td>
+    <td><span class="k">EndPath</span> ()</td>
     <td>End for Path.</td>
   </tr>
   <tr>
-    <td><span id="k">LayerRefresh</span> ( <span id="b">ControlPoint[]</span> ps )</td>
+    <td><span class="k">LayerRefresh</span> ( <span class="b">ControlPoint[]</span> ps )</td>
     <td>Raises the layer of objects.</td>
   </tr>
 </table>
@@ -338,26 +338,26 @@
     <th style="width:550px;">Description</th>
   </tr>
   <tr>
-    <td><span id="k">canvas</span></td>
-    <td><span id="g">Object</span></td>
+    <td><span class="k">canvas</span></td>
+    <td><span class="g">Object</span></td>
     <td></td>
     <td>Get the canvas element.</td>
   </tr>
   <tr>
-    <td><span id="k">context</span></td>
-    <td><span id="g">Object</span></td>
+    <td><span class="k">context</span></td>
+    <td><span class="g">Object</span></td>
     <td></td>
     <td>Get the canvas context.</td>
   </tr>
   <tr>
-    <td><span id="k">allObjects</span></td>
-    <td><span id="g">Object[]</span></td>
+    <td><span class="k">allObjects</span></td>
+    <td><span class="g">Object[]</span></td>
     <td></td>
     <td>Get the all added objects.</td>
   </tr>
   <tr>
-    <td><span id="k">controlPoints</span></td>
-    <td><span id="g">Object[]</span></td>
+    <td><span class="k">controlPoints</span></td>
+    <td><span class="g">Object[]</span></td>
     <td></td>
     <td>Get the all added ControlPoints.</td>
   </tr>
@@ -368,7 +368,7 @@
 <div class="baslik-alt">
   <h2 style="margin-bottom:0;">ControlPoint Class</h2>
 </div>
-<p><span id="g">new</span> ControlPoint(<span id="g">Number</span> x, <span id="g">Number</span> y)</p>
+<p><span class="g">new</span> ControlPoint(<span class="g">Number</span> x, <span class="g">Number</span> y)</p>
 <div class="baslik-alt" style="margin-top: 0;">
   <h3 style="margin-top:0; font-weight: bold;">Methods</h3>
 </div>
@@ -378,45 +378,45 @@
     <th style="width:400px;">Description</th>
   </tr>
   <tr>
-    <td><span id="k">Move</span> ( <span id="g">Number</span> x, <span id="g">Number</span> y )</td>
+    <td><span class="k">Move</span> ( <span class="g">Number</span> x, <span class="g">Number</span> y )</td>
     <td>Moves the ControlPoint on x, y coordinates.</td>
   </tr>
   <tr>
-    <td><span id="k">PositionLimit</span> ( <span id="g">Number</span> minX, <span id="g">Number</span> minY, <span id="g">Number</span> maxX, <span id="g">Number</span> maxY ) </br>
-      <span id="k">PositionLimit</span> ( <span id="b">null</span> )</td>
+    <td><span class="k">PositionLimit</span> ( <span class="g">Number</span> minX, <span class="g">Number</span> minY, <span class="g">Number</span> maxX, <span class="g">Number</span> maxY ) <br>
+      <span class="k">PositionLimit</span> ( <span class="b">null</span> )</td>
     <td>It limits the position at Min x, Min y, Max x, Max y coordinates.</td>
   </tr>
   <tr>
-    <td><span id="k">DirectionLimit</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2)</br>
-      <span id="k">DirectionLimit</span> ( <span id="b">null</span> )</td>
+    <td><span class="k">DirectionLimit</span> ( <span class="g">Number</span> p1, <span class="g">Number</span> p2)<br>
+      <span class="k">DirectionLimit</span> ( <span class="b">null</span> )</td>
     <td>Limits the ControlPoint in one direction.</td>
   </tr>
   <tr>
-    <td><span id="k">DirectPositionLimit</span> ( <span id="g">Number</span> p1, <span id="g">Number</span> p2)</br>
-      <span id="k">DirectPositionLimit</span> ( <span id="b">null</span> )</td>
+    <td><span class="k">DirectPositionLimit</span> ( <span class="g">Number</span> p1, <span class="g">Number</span> p2)<br>
+      <span class="k">DirectPositionLimit</span> ( <span class="b">null</span> )</td>
     <td>Limits the position when using the DirectionLimit.</td>
   </tr>
   <tr>
-    <td><span id="k">ConnectInputX</span> ( <span id="g">String</span> inputID)</br>
-      <span id="k">ConnectInputX</span> ( <span id="b">null</span> )</td>
+    <td><span class="k">ConnectInputX</span> ( <span class="g">String</span> inputID)<br>
+      <span class="k">ConnectInputX</span> ( <span class="b">null</span> )</td>
     <td>Connects the x coordinate to an Input object.</td>
   </tr>
   <tr>
-    <td><span id="k">ConnectInputY</span> ( <span id="g">String</span> inputID)</br>
-      <span id="k">ConnectInputY</span> ( <span id="b">null</span> )</td>
+    <td><span class="k">ConnectInputY</span> ( <span class="g">String</span> inputID)<br>
+      <span class="k">ConnectInputY</span> ( <span class="b">null</span> )</td>
     <td>Connects the y coordinate to an Input element.</td>
   </tr>
   <tr>
-    <td><span id="k">AddParent</span> ( <span id="b">ControlPoint</span> cp )</br>
-      <span id="k">AddParent</span> ( <span id="b">null</span> )</td>
+    <td><span class="k">AddParent</span> ( <span class="b">ControlPoint</span> cp )<br>
+      <span class="k">AddParent</span> ( <span class="b">null</span> )</td>
     <td>Adds the parent to the ControlPoint.</td>
   </tr>
   <tr>
-    <td><span id="k">on</span> ( <span id="g">"move"</span>, <span id="g">function</span> event )</td>
+    <td><span class="k">on</span> ( <span class="g">"move"</span>, <span class="g">function</span> event )</td>
     <td>Adds event listener.</td>
   </tr>
   <tr>
-    <td><span id="k">off</span> ( <span id="g">"move"</span>, <span id="g">function</span> event )</td>
+    <td><span class="k">off</span> ( <span class="g">"move"</span>, <span class="g">function</span> event )</td>
     <td>Remove event listener.</td>
   </tr>
 </table>
@@ -432,81 +432,81 @@
     <th style="width:550px;">Description</th>
   </tr>
   <tr>
-    <td><span id="k">x</span></td>
-    <td><span id="g">Number</span></td>
+    <td><span class="k">x</span></td>
+    <td><span class="g">Number</span></td>
     <td></td>
     <td>The x coordinate of the canvas.</td>
   </tr>
   <tr>
-    <td><span id="k">y</span></td>
-    <td><span id="g">Number</span></td>
+    <td><span class="k">y</span></td>
+    <td><span class="g">Number</span></td>
     <td></td>
     <td>The y coordinate of the canvas.</td>
   </tr>
   <tr>
-    <td><span id="k">visible</span></td>
-    <td><span id="g">Boolean</span></td>
-    <td><span id="b">true</span></td>
+    <td><span class="k">visible</span></td>
+    <td><span class="g">Boolean</span></td>
+    <td><span class="b">true</span></td>
     <td>ControlPoint drawing visibility.</td>
   </tr>
   <tr>
-    <td><span id="k">control</span></td>
-    <td><span id="g">Boolean</span></td>
-    <td><span id="b">true</span></td>
+    <td><span class="k">control</span></td>
+    <td><span class="g">Boolean</span></td>
+    <td><span class="b">true</span></td>
     <td>ControlPoint drawing visibility. Default is true for AddControlPoint()</td>
   </tr>
   <tr>
-    <td><span id="k">scale</span></td>
-    <td><span id="g">Number</span></td>
-    <td><span id="b">5</span></td>
+    <td><span class="k">scale</span></td>
+    <td><span class="g">Number</span></td>
+    <td><span class="b">5</span></td>
     <td>Sets the control area size.</td>
   </tr>
   <tr>
-    <td><span id="k">directionLimit</span></td>
-    <td><span id="b">Number[]</span></td>
-    <td><span id="b"></span></td>
+    <td><span class="k">directionLimit</span></td>
+    <td><span class="b">Number[]</span></td>
+    <td><span class="b"></span></td>
     <td>Get the direction limit normal. Default [0,0]</td>
   </tr>
   <tr>
-    <td><span id="k">positionLimit</span></td>
-    <td><span id="b">Number[]</span></td>
-    <td><span id="b"></span></td>
+    <td><span class="k">positionLimit</span></td>
+    <td><span class="b">Number[]</span></td>
+    <td><span class="b"></span></td>
     <td>Get the position limit coordinates. Default [null,null,null,null]</td>
   </tr>
   <tr>
-    <td><span id="k">connectedInputX</span></td>
-    <td><span id="g">Object</span></td>
-    <td><span id="b">null</span></td>
+    <td><span class="k">connectedInputX</span></td>
+    <td><span class="g">Object</span></td>
+    <td><span class="b">null</span></td>
     <td>Get x coordinates connected Input element.</td>
   </tr>
   <tr>
-    <td><span id="k">connectedInputY</span></td>
-    <td><span id="g">Object</span></td>
-    <td><span id="b">null</span></td>
+    <td><span class="k">connectedInputY</span></td>
+    <td><span class="g">Object</span></td>
+    <td><span class="b">null</span></td>
     <td>Get y coordinates connected Input element.</td>
   </tr>
   <tr>
-    <td><span id="k">parent</span></td>
-    <td><span id="b">ControlPoint</span></td>
-    <td><span id="b">null</span></td>
+    <td><span class="k">parent</span></td>
+    <td><span class="b">ControlPoint</span></td>
+    <td><span class="b">null</span></td>
     <td>Get the parent ControlPoint.</td>
   </tr>
   <tr>
-    <td><span id="k">children</span></td>
-    <td><span id="b">ControlPoint[]</span></td>
-    <td><span id="b"></span></td>
+    <td><span class="k">children</span></td>
+    <td><span class="b">ControlPoint[]</span></td>
+    <td><span class="b"></span></td>
     <td>Get the children ControlPoints.</td>
   </tr>
   <tr>
-    <td><span id="k">directionLimitParent</span></td>
-    <td><span id="g">Boolean</span></td>
-    <td><span id="b">true</span></td>
+    <td><span class="k">directionLimitParent</span></td>
+    <td><span class="g">Boolean</span></td>
+    <td><span class="b">true</span></td>
     <td>Direction limit parent effect is active or passive.</td>
   </tr>
   <tr>
-    <td><span id="k">positionLimitParent</span></td>
-    <td><span id="g">Boolean</span></td>
-    <td><span id="b">true</span></td>
+    <td><span class="k">positionLimitParent</span></td>
+    <td><span class="g">Boolean</span></td>
+    <td><span class="b">true</span></td>
     <td>Position limit parent effect is active or passive.</td>
   </tr>
 </table>

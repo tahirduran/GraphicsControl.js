@@ -20,13 +20,13 @@
   var p0 = g.AddControlPoint(200,200);
   p0.control = false;
   p0.visible = false;
-  g.context.strokeStyle = "rgb(150,150,150)"
+  g.context.strokeStyle = "rgb(150,150,150)";
   g.BeginFill("rgba(255,255,255,0.5)");
   var p1 = g.AddControlPoint(350,200);
   var p2 = g.AddControlPoint(200,50);
   var p3 = g.AddControlPoint(50,200);
   var p4 = g.AddControlPoint(200,350);
-  p1.scale = 10, p2.scale = 10, p3.scale = 10, p4.scale = 10;
+  p1.scale = 10; p2.scale = 10; p3.scale = 10; p4.scale = 10;
   p1.DirectionLimit(-1,0);
   p2.DirectionLimit(0,1);
   p3.DirectionLimit(1,0);
@@ -75,14 +75,14 @@
 
   //Rectangle
   g.BeginStroke();
-  g.context.strokeStyle = "rgb(150,150,150)"
+  g.context.strokeStyle = "rgb(150,150,150)";
   g.BeginFill("rgba(255,255,255,0.5)");
   var prc1 = g.AddControlPoint(425,50);
   var prc2 = g.AddControlPoint(500,50);
   var prc3 = g.AddControlPoint(575,50);
   var prc4 = g.AddControlPoint(650,50);
   g.EndStroke();
-  prc1.scale = 10, prc2.scale = 10, prc3.scale = 10, prc4.scale = 10;
+  prc1.scale = 10; prc2.scale = 10; prc3.scale = 10; prc4.scale = 10;
   prc1.DirectionLimit(0,1);
   prc2.DirectionLimit(0,1);
   prc3.DirectionLimit(0,1);
@@ -99,8 +99,8 @@
     g.BeginFill(color1);
     g.AddRect(pr1,pr2);
     g.EndFill();
-    var pr1 = g.AddControlPoint(x + 20,70);
-    var pr2 = g.AddControlPoint(x + 30,350);
+    pr1 = g.AddControlPoint(x + 20,70);
+    pr2 = g.AddControlPoint(x + 30,350);
     pr1.AddParent(cPoint);
     g.BeginFill(color2);
     g.AddRect(pr1,pr2);
@@ -117,22 +117,22 @@
   prc2.on("move",prc2move);
   prc3.on("move",prc3move);
   prc4.on("move",prc4move);
-  function prc1move(cp, delta){
+  function prc1move(){
     p1.off("move",p1move);
     p1.Move(250+ 110-((prc1.y-30)/2),p1.y);
     p1.on("move",p1move);
   }
-  function prc2move(cp, delta){
+  function prc2move(){
     p2.off("move",p2move);
     p2.Move(p2.x,40 + ((prc2.y-30)/2));
     p2.on("move",p2move);
   }
-  function prc3move(cp, delta){
+  function prc3move(){
     p3.off("move",p3move);
     p3.Move(40+ ((prc3.y-30)/2),p3.y);
     p3.on("move",p3move);
   }
-  function prc4move(cp, delta){
+  function prc4move(){
     p4.off("move",p4move);
     p4.Move(p4.y,250 + 110 - ((prc4.y-30)/2));
     p4.on("move",p4move);
@@ -141,22 +141,22 @@
   p2.on("move",p2move);
   p3.on("move",p3move);
   p4.on("move",p4move);
-  function p1move(cp, delta){
+  function p1move(){
     prc1.off("move",prc1move);
     prc1.Move(prc1.x,30 + 220 -((p1.x-250)*2));
     prc1.on("move",prc1move);
   }
-  function p2move(cp, delta){
+  function p2move(){
     prc2.off("move",prc2move);
     prc2.Move(prc2.x,30 + ((p2.y-40)*2));
     prc2.on("move",prc2move);
   }
-  function p3move(cp, delta){
+  function p3move(){
     prc3.off("move",prc3move);
     prc3.Move(prc3.x,30 + ((p3.x-40)*2));
     prc3.on("move",prc3move);
   }
-  function p4move(cp, delta){
+  function p4move(){
     prc4.off("move",prc4move);
     prc4.Move(prc4.x,30 + 220 -((p4.y-250)*2));
     prc4.on("move",prc4move);
@@ -164,3 +164,5 @@
 </script>
 
 <div id="tyaz"></div>
+</div>
+</div>

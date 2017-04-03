@@ -32,7 +32,7 @@ input{
 }
 tbody{
   float: left;
-  border-spacing: 0px 0px;
+  border-spacing: 0 0;
   font-size: 13px;
 }
 th{
@@ -70,7 +70,6 @@ td{
   color: #36A2EB;
   text-decoration: none;
   border-bottom: 1px solid #36A2EB;
-  background-color:
 }
 .link:hover{
   color: #36A2EB;
@@ -94,12 +93,12 @@ pre {
   margin-right: 40px;
   width: 300px;
 }
-#b{
+.b{
   color: #00709f;
 }
-#g{
+.g{
   color: Green;
 }
-#k{
+.k{
   font-weight: bold;;
 }
