@@ -5,9 +5,9 @@ You can find examples at
 [Chart](https://tahirduran.github.io/GraphicsControl.js/example/Chart.html) or [Character](https://tahirduran.github.io/GraphicsControl.js/example/Character.html)
 
 
-![GraphicsControl.js Chart Example](http://tahirduran.com/img/chart2.png)
-![GraphicsControl.js Character Example](http://tahirduran.com/img/character.png)
--
+![GraphicsControl.js Chart Example](https://tahirduran.github.io/GraphicsControl.js/example/img/chart.png)
+![GraphicsControl.js Character Example](https://tahirduran.github.io/GraphicsControl.js/example/img/character.png)
+
 
 
 License
