@@ -8,6 +8,13 @@
 <div class="container">
 <div class="content">
 
+  <script>
+    var g = new GraphicsControl ("CanvasQuadCurve");
+    var p1 = g.AddControlPoint(80,150);
+    var p2 = g.AddControlPoint(175,50);
+    var p3 = g.AddControlPoint(270,150);
+    g.AddQuadCurve(p1,p2,p3);
+
   <!-- <canvas id="CanvasArc" width="350" height="200"></canvas>
   <script>
     var g = new GraphicsControl ("CanvasArc");

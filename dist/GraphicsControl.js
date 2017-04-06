@@ -111,6 +111,18 @@ function GraphicsControl (canvasID){
 		this.Draw();
 		return this.allObjects[this.allObjects.length - 1];
 	};
+    this.AddQuadCurve = function (P1, P2, P3, P4, P5, P6){
+        var b;
+        if(Array.isArray(P1))
+            b = new QuadCurve(this, P1);
+        else if(P1.type === "ControlPoint")
+            b = new QuadCurve(this, [P1, P2, P3]);
+        else
+            b = new QuadCurve(this, [new ControlPoint(this, P1, P2), new ControlPoint(this, P3, P4), new ControlPoint(this, P5, P6)]);
+        this.allObjects.push(b);
+        this.Draw();
+        return this.allObjects[this.allObjects.length - 1];
+    };
 	this.AddRect = function (P1, P2, P3, P4){
 		var b;
 		if(P1.type === "ControlPoint")
@@ -349,6 +361,20 @@ function GraphicsControl (canvasID){
 				cn.context.bezierCurveTo(this.points[i].x, this.points[i].y, this.points[i+1].x, this.points[i+1].y, this.points[i+2].x, this.points[i+2].y);
 		};
 	}
+    /**@this {Object}*/
+    function QuadCurve(cn, cPs){
+        this.cn = cn;
+        this.type = "Bezier";
+        this.points = cPs;
+        this.properties = new Properties(cn);
+        this.canvasProperties = new CanvasProperties(cn);
+        this.Draw = function() {
+            this.canvasProperties.SetProperties();
+            cn.context.lineTo(this.points[0].x, this.points[0].y);
+            for(var i = 1; i < this.points.length;i+=2)
+                cn.context.quadraticCurveTo(this.points[i].x, this.points[i].y, this.points[i+1].x, this.points[i+1].y);
+        };
+    }
     /**@this {Object}*/
 	function Rect(cn, cPs){
 		this.cn = cn;
