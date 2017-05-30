@@ -1,7 +1,7 @@
 # GraphicsControl.js
-Simple HTML5 Graphic Controls using the canvas element. For the finer details, see the [documentation](https://tahirduran.github.io/GraphicsControl.js/example/index.html).
+Simple HTML5 Graphic Controls can be used in the canvas element. For the finer details, see the [documentation](https://tahirduran.github.io/GraphicsControl.js/example/index.html).
 # Examples
-You can find examples at
+You can find the examples in the
 [Chart](https://tahirduran.github.io/GraphicsControl.js/example/Chart.html) or [Character](https://tahirduran.github.io/GraphicsControl.js/example/Character.html)
 
 
