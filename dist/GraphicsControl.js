@@ -485,6 +485,14 @@ function GraphicsControl (canvasID){
 		};
 	}
 
+	//Resize for pixel perfect
+	this.canvas.style.width = this.canvas.width + "px";
+	this.canvas.style.height = this.canvas.height + "px";
+	var scale = window.devicePixelRatio;
+	this.canvas.width = this.canvas.width * scale;
+	this.canvas.height = this.canvas.height * scale;
+	this.context.scale(scale, scale);
+	
 	//Mouse
 	var selectObject = null;
 	var mouseDownPos = null;
